@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [ngrok AI Gateway](#ngrok-ai-gateway) | No | Custom routing logic, self-hosted models | Developers that want fine-grained control |
 
 ---
 
@@ -241,6 +242,27 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+## [ngrok AI Gateway](https://ngrok.ai)
+
+**ngrok AI Gateway** Route, secure, and manage traffic to any LLM—cloud or local—with one unified platform.
+
+### ngrok AI Gateway Integration
+
+> Code adapted from [ngrok AI Gateway Documentation]((https://ngrok.com/docs/ai-gateway/quickstart))
+
+```const openai = new OpenAI({
+  baseURL: "https://your-ai-gateway.ngrok.dev",
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+```
+
+### Cloudflare AI Gateway Resources
+
+- [ngrok AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/](https://ngrok.com/docs/ai-gateway/overview))
+- [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/](https://ngrok.com/docs/ai-gateway/concepts/providers)
 
 ---
 
