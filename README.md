@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [Nefesh AI Gateway](#nefesh-ai-gateway) | No | Biometric-aware routing, physiological context | Health AI, adaptive agents |
 
 ---
 
@@ -241,6 +242,48 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [Nefesh AI Gateway](https://nefesh.ai)
+
+**Nefesh AI Gateway** (Cognitive Compute Router) is a biometric-aware AI gateway that injects real-time physiological context into LLM calls. It sits between your application and 11 LLM providers, adding human state data (stress level, heart rate, HRV) so the AI can adapt its behavior to the person it is talking to. Three integration modes: header injection, prompt modification, and response filtering. Supports MCP (Streamable HTTP) and A2A (JSON-RPC 2.0) protocols natively.
+
+### Nefesh AI Gateway Integration
+
+> Code adapted from [Nefesh API Documentation](https://nefesh.ai/docs)
+
+```python
+import requests
+
+# Standard LLM call routed through Nefesh Gateway
+# The gateway injects the user's current physiological state
+response = requests.post(
+    "https://gateway.nefesh.ai/v1/chat/completions",
+    headers={
+        "X-Nefesh-Key": "nfsh_your_api_key",
+        "X-Nefesh-Subject": "user_123"
+    },
+    json={
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "messages": [
+            {"role": "user", "content": "How am I doing today?"}
+        ]
+    }
+)
+
+# Response includes adapted AI behavior based on user's live stress state
+# e.g., if user stress is high, the AI automatically adjusts tone and pacing
+print(response.json())
+```
+
+### Nefesh AI Gateway Resources
+
+- [Nefesh Documentation](https://nefesh.ai/docs)
+- [Gateway Docs](https://nefesh.ai/docs/gateway)
+- [MCP Server (Official Registry)](https://github.com/nefesh-ai/nefesh-mcp-server)
+- [API Reference](https://nefesh.ai/docs/api)
 
 ---
 
