@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [Ferro Labs AI Gateway](#ferro-labs-ai-gateway) | Yes | High-performance Go gateway | Self-hosted production teams |
 
 ---
 
@@ -241,6 +242,36 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [Ferro Labs AI Gateway](https://github.com/ferro-labs/ai-gateway)
+
+**Ferro Labs AI Gateway** is a high-performance AI gateway written in Go that routes LLM requests across 29 providers through a single OpenAI-compatible API. It is designed for self-hosted production use, with single-binary deployment, low memory usage, and fast request routing.
+
+### Ferro Labs AI Gateway Integration
+
+> Code adapted from [Ferro Labs AI Gateway README](https://github.com/ferro-labs/ai-gateway)
+
+```bash
+docker run -p 8080:8080 \
+  -e OPENAI_API_KEY=sk-your-key \
+  -e MASTER_KEY=fgw_your-master-key \
+  ghcr.io/ferro-labs/ai-gateway:latest
+
+curl http://localhost:8080/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "Hello from Ferro Labs AI Gateway"}]
+  }'
+```
+
+### Ferro Labs AI Gateway Resources
+
+- [GitHub Repository](https://github.com/ferro-labs/ai-gateway)
+- [Go Package Documentation](https://pkg.go.dev/github.com/ferro-labs/ai-gateway)
+- [Releases](https://github.com/ferro-labs/ai-gateway/releases)
 
 ---
 
