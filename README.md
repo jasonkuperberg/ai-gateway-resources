@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [FuturMix](#futurmix) | No | 22+ models, 20-30% cheaper | Cost-conscious developers |
 
 ---
 
@@ -241,6 +242,37 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [FuturMix](https://futurmix.ai)
+
+**FuturMix** is a unified AI gateway that provides access to 22+ models from OpenAI, Anthropic, and Google through a single OpenAI-compatible API endpoint. It offers 99.99% SLA with automatic failover, and pricing that is 20-30% cheaper than comparable gateways like OpenRouter.
+
+### FuturMix Integration
+
+> Code adapted from [FuturMix Quickstart Documentation](https://github.com/FuturMix/futurmix-ai-quickstart)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://futurmix.ai/v1",
+    api_key="sk-your-futurmix-key",
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+
+print(response.choices[0].message.content)
+```
+
+### FuturMix Resources
+
+- [FuturMix Quickstart](https://github.com/FuturMix/futurmix-ai-quickstart)
+- [FuturMix Website](https://futurmix.ai)
 
 ---
 
