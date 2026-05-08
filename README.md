@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [OfoxAI](https://ofox.ai) | No | 100+ LLMs, pay-per-token | Developers needing unified LLM access |
 
 ---
 
@@ -241,6 +242,34 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [OfoxAI](https://ofox.ai)
+
+**OfoxAI** is a unified API gateway that provides access to 100+ LLMs (GPT, Claude, Gemini, DeepSeek, and more) through a single OpenAI-compatible endpoint. No monthly fees — pay per token.
+
+### OfoxAI Integration
+
+```python
+import openai
+
+client = openai.OpenAI(
+    api_key="your-ofoxai-api-key",
+    base_url="https://api.ofox.ai/v1",
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+print(response.choices[0].message.content)
+```
+
+### OfoxAI Resources
+
+- [OfoxAI Documentation](https://docs.ofox.ai)
+- [Supported Models](https://ofox.ai/models)
 
 ---
 
