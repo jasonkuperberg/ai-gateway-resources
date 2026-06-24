@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [Prism API](#prism-api) | No | Crypto-friendly GPT-5.5 access, OpenAI-compatible routes | Overseas developers, crypto-native API users |
 
 ---
 
@@ -241,6 +242,41 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [Prism API](https://558686.xyz)
+
+**Prism API** is an independent sub2api-based AI API gateway with OpenAI-compatible `/v1` routes. It targets overseas developers who want low-cost GPT-5.5 access, crypto-friendly recharge and voucher options, one-key API usage, quota controls, and access to model families including GPT, Claude, Gemini, and Antigravity.
+
+### Prism API Integration
+
+> Example adapted from the public Prism API promotion kit.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://sub2api.558686.xyz/v1",
+    api_key="your-prism-api-key",
+)
+
+response = client.chat.completions.create(
+    model="gpt-5.5",
+    messages=[
+        {"role": "user", "content": "How do I integrate Prism API with my Python app?"}
+    ],
+)
+
+print(response.choices[0].message.content)
+```
+
+### Prism API Resources
+
+- [Prism API App](https://558686.xyz)
+- [API Documentation](https://sub2api.558686.xyz/docs/)
+- [Public OpenAPI Metadata](https://github.com/go165/prism-api-promo/blob/main/openapi.json)
+- [Voucher Shop](https://shop.558686.xyz)
 
 ---
 
