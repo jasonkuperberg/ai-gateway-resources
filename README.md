@@ -29,6 +29,7 @@ An **AI gateway** (also called an **LLM gateway** or **LLM proxy**) is a unified
 | [LiteLLM](#litellm) | Yes | Self-hosted, 100+ providers | Cost-conscious teams |
 | [Kong AI Gateway](#kong-ai-gateway) | Partial | Enterprise API management | Large organizations |
 | [Cloudflare AI Gateway](#cloudflare-ai-gateway) | No | Edge caching, global network | Performance-focused apps |
+| [boldrouter](#boldrouter) | No | Swiss-hosted, auto-routing & failover | Privacy-conscious teams |
 
 ---
 
@@ -241,6 +242,32 @@ console.log(response.choices[0].message.content);
 - [Cloudflare AI Gateway Docs](https://developers.cloudflare.com/ai-gateway/)
 - [Supported Providers](https://developers.cloudflare.com/ai-gateway/providers/)
 - [Unified API (OpenAI Compatible)](https://developers.cloudflare.com/ai-gateway/usage/chat-completion/)
+
+---
+
+## [boldrouter](https://boldrouter.com)
+
+OpenAI-compatible AI gateway developed and hosted in Switzerland. Access multiple model providers through one endpoint, with automatic routing (`bold/auto`), failover, opt-in PII anonymization, and unified prepaid billing.
+
+### boldrouter Integration
+
+```javascript
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: "https://boldrouter.com/v1",
+  apiKey: process.env.BOLDROUTER_API_KEY,
+});
+
+const res = await client.chat.completions.create({
+  model: "bold/auto",
+  messages: [{ role: "user", content: "Hello" }],
+});
+```
+
+### boldrouter Resources
+
+- [boldrouter Website](https://boldrouter.com)
 
 ---
 
